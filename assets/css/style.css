@@ -21,9 +21,10 @@
 
 
 html {
-/*    background: linear-gradient(180deg, blue, red);
+    background: linear-gradient(180deg, blue, red);
     background-size: 600% 600%;
-    height: 100%;*/
+    height: 100%;
+    animation: fade 15s linear alternate infinite;
 }
 
 
@@ -38,7 +39,7 @@ html {
 
 .run-animation {
 
-  animation: fade 10s linear alternate infinite;
+  animation: fade 15s linear alternate infinite;
 
 }
 
@@ -143,7 +144,7 @@ footer {
 }
 
 
-#message {
+.message {
   display: none;
   position: fixed;
   top: 16%;

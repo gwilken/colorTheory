@@ -5,9 +5,12 @@ $(document).ready(function() {
 
 		var right = 0;
 		var wrong = 0;
+		var timeOut = 0;
 		var startTime = 0;
-		var currentQ = 6;
-
+		var currentQ = 0;
+		var clickValue = null;
+		var intervalId;
+		
 		var html = $('html');
 		var message = $('#message');
 		var subtitle = $('#subtitle');
@@ -19,6 +22,7 @@ $(document).ready(function() {
 				colors: ['blueviolet', 'gold'],				
 				correct: 0
 			},
+
 			{
 				prompt: ['When born', "a zebra's", 'black and white', 'stripes are', 'actually this', 'color'],
 				answers: ['Black & white, duh.', 'Brown', 'Invisible', 'Pink'],
@@ -32,6 +36,7 @@ $(document).ready(function() {
 				colors: ['blue', 'orange'],				
 				correct: 1
 			},
+
 			{
 				prompt: ['Elvis', "Presley's", 'first', 'Cadillac', 'was', 'this color.'],
 				answers: ['Lime Green', 'Mystery Mauve', 'Blue Suede', 'Murder Red'],
@@ -89,37 +94,45 @@ $(document).ready(function() {
 		];
 
 
+		$('.answers').on('click', function(event){
 
-		var timer = function(time) {
+			clickValue = parseInt(event.target.attributes.value.value);
 
-			var counter = time;
+			console.log(clickValue);
+
+		});
+
+
+		var start = function() {
+
+			var msg = $('<div>').addClass('message');
+			var title = $('<span>').addClass('title').html('Click!');
+			var sub = $('<span>').addClass('subtitle').html(' is correct!');
+			
+			msg.append(title);
+			msg.append(sub);
+
+
+			$('#containerMain').append(msg);
+
+			msg.css('display', 'initial');
+
+			msg.on('click', function() {
+
+				msg.css('display', 'none');
+
+				nextQuestion();
+
+			});
+
+		}
+
+
+		var timer = function() {
+
+			var counter = 10;
 			
 			html.addClass('run-animation');
-
-
-			$('.answers').on('click', function(event){
-		
-				var value = parseInt(event.target.attributes.value.value);
-
-				if (value === questions[currentQ].correct && counter > 0) {
-
-					stop();	
-
-					html.addClass('pause-animation');		
-
-					correctAnswer();		
-				
-				} else {
-
-					stop();
-
-					html.addClass('pause-animation');
-
-					wrongAnswer();
-
-				}
-
-			})
 
 
 			var stop = function() {
@@ -135,7 +148,13 @@ $(document).ready(function() {
 
 				$('#countdownTimer').html(counter);
 
+
+				console.log('val', clickValue);
+
+
 				if (counter === 0) {
+
+					clickValue = null;
 
 					clearInterval(intervalId); 
 
@@ -143,22 +162,49 @@ $(document).ready(function() {
 
 					outOfTime();
 
-				}
+				};
+
+				if (clickValue === questions[currentQ].correct && counter > 0) {
+
+					clickValue = null;
+
+					window.clearInterval(intervalId); 
+
+					html.addClass('pause-animation');		
+
+					//$('.answers').off('click');
+
+					correctAnswer();		
+				
+				}; 
+					
+				if (clickValue !== questions[currentQ].correct && clickValue !== null && counter > 0){
+					
+					clickValue = null;
+
+					window.clearInterval(intervalId); 
+
+					html.addClass('pause-animation');
+
+					wrongAnswer();
+
+				};
 
 			};
 
 
-			var intervalId = setInterval(countdown, 1000);
-
+			intervalId = setInterval(countdown, 1300);
 
 		}
 
 
 		var nextQuestion = function() {
 
+			//console.log(currentQ, right, wrong);
+
 			displayQuestion(questions[currentQ]);
 
-			timer(9);
+			timer();
 
 		}
 
@@ -194,7 +240,13 @@ $(document).ready(function() {
 
 		var outOfTime = function() {
 
+			timeOut++;
+
 			console.log('damn, out o time');
+
+			html.removeClass('run-animation');
+
+			nextQuestion();
 		
 		}
 
@@ -202,8 +254,29 @@ $(document).ready(function() {
 		var wrongAnswer = function() {
 
 			wrong++;
+			
+			var msg = $('<div>').addClass('message');
+			var title = $('<span>').addClass('title').html('NOPE!');
+			var sub = $('<span>').addClass('subtitle').html(questions[currentQ].answers[questions[currentQ].correct] + ' was the answer.');
+			
+			msg.append(title);
+			msg.append(sub);
 
-			console.log('sorry, correct answer was ', questions[currentQ].answers[questions[currentQ].correct]);
+			$('#containerMain').append(msg);
+
+			msg.css('display', 'initial');
+
+			html.removeClass('run-animation');
+
+			setTimeout(function() {
+
+				msg.remove();
+
+				currentQ++;
+
+				nextQuestion();
+
+			}, 2000);
 
 		}
 
@@ -211,20 +284,32 @@ $(document).ready(function() {
 
 			right++;
 
-
+			var msg = $('<div>').addClass('message');
 			var title = $('<span>').addClass('title').html('NICE!');
 			var sub = $('<span>').addClass('subtitle').html(questions[currentQ].answers[questions[currentQ].correct] + ' is correct!');
 			
-			message.css('display', 'initial');
+			msg.append(title);
+			msg.append(sub);
 
-			message.append(title);
-			message.append(sub);
+			$('#containerMain').append(msg);
+
+			msg.css('display', 'initial');
+
+			html.removeClass('run-animation');
+			
+			setTimeout(function() {
+
+				msg.remove();
+
+				currentQ++;
+
+				nextQuestion();
+
+			}, 2000);
 
 		}
 
-		//displayQuestion(questions[0]);
-
-		nextQuestion();
+		start();
 
 	});
 
