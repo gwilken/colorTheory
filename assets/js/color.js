@@ -11,20 +11,68 @@ $(document).ready(function() {
 		var questions = [
 
 		{
-			prompt: ['What is the', 'wavelength', 'of', 'infrared', 'light?']
-		}
+			prompt: ['What', 'is the', 'wavelength', 'of', 'visible', 'light?'],
+			answers: ['My wavelength man.', '200 nm', '270 - 500nm', '400 - 700nm' ],
+			correct: 3
+		},
+		{
+			prompt: ['A single light', 'bulb has been', 'burning', 'continously','for how many', 'years?'],
+			answers: ['27 years', '52 years', '116 years', '99 years'],
+			correct: 2
+		},
+		{
+			prompt: ['Sunlight', 'causes', 'sneezing in', 'what', 'precent', 'of people?'],
+			answers: ['100%', '6-11%', '18-35%','45-50%'],
+			correct: 2
+		},
+				{
+			prompt: ['Litmus paper', 'turns this', 'color', 'when dipped', 'in', 'acid.'],
+			answers: ['pink', 'blue', 'black', 'psychedelic!'],
+			correct: 0
+		},
+		{
+			prompt: ['The', '"black box"', 'of an aircraft', 'flight recorder', 'is', 'what color?'],
+			answers: ['Flourescent green', 'Orange', 'Fire Engine Red', 'Black. Nice try.'],
+			correct: 1
+		},
+		{
+			prompt: ['In 1900', 'the cause of', 'this "fever" was', 'discovered', 'to be', 'mosquitos'],
+			answers: ['Yellow Fever', 'White Fever', 'Dengue Fever', 'Hangover Fever'],
+			correct: 0
+		},
+		{
+			prompt: ['When born', "a zebra's", 'black and white', 'stripes are', 'actually this', 'color'],
+			answers: ['Black & white, duh.', 'Brown', 'Invisible', 'Pink'],
+			correct: 1
+		},
+		{
+			prompt: ['Elvis', "Presley's", 'first', 'Cadillac', 'was', 'this color.'],
+			answers: ['Lime Green', 'Mystery Mauve', 'Blue Suede', 'Murder Red'],
+			correct: 2
+		},
+		{
+			prompt: ["In it's", 'pure state', 'topaz', 'is', 'what', 'color?'],
+			answers: ['Light blue', 'Light green', 'Light green', "Ain't got no color"],
+			correct: 3
+		},
+		{
+			prompt: ['The first', 'color a', 'baby can', 'perceive', 'is', 'what?'],
+			answers: ['Blue', 'Aqua-Marine', 'Red', "Baby's cant see!"],
+			correct: 2
+		},
+		{
+			prompt: ['According to', 'safety studies', 'the safest', 'color for', 'an automobile', 'is?'],
+			answers: ['White', 'Red', 'Poop-Brown', 'Blue'],
+			correct: 1
+		},	
+		{
+			prompt: ['The', 'irrational', 'fear of', 'color', 'is known', 'as what?'],
+			answers: ['Chromophobia', 'Sprectrophobia', 'Colorsickness', 'Scaredycat-blues'],
+			correct: 0
+		}];
 
 
-
-
-
-
-
-
-		];
-
-
-
+		//colorwheel 
 
 
 
@@ -130,11 +178,6 @@ $(document).ready(function() {
 
 		}
 
-
-		//var questions = $('#svgText').find('#group');
-		
-
-	
 
 	});
 
