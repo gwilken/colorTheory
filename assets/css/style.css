@@ -19,19 +19,18 @@
 }
 
 @keyframes scaleUp {
-  0% { transform: scale(1.0); }
-  100% { transform: scale(1.1); }
+    0% { transform: scale(1.0); }
+    100% { transform: scale(1.1); }
 }
 
 
 
+html {
 
-html, body {
-
-      background: linear-gradient(180deg, blue, red);
-      background-size: 600% 600%;
-      height: 100%;
-      animation: fade 30s linear alternate infinite;
+    background: linear-gradient(180deg, blue, red);
+    background-size: 600% 600%;
+    height: 100%;
+    animation: fade 20s linear alternate infinite;
 }
 
 
@@ -40,48 +39,49 @@ html, body {
 }
 
 .text{
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
 }
 
 #questionsContainer {
-  height: 100%;
-  width: 97%;
+    height: 100%;
+    width: 97%;
 }
 
 
 
 svg {
-  position: fixed;
-  left: 0;
-  top: 2%;
-  margin:0% 0% 0% 2%;
-  width: 97%;
-  height: inherit;
+    position: fixed;
+    left: 0;
+    top: 2%;
+    margin:0% 0% 0% 2%;
+    width: 97%;
+    height: inherit;
 }
 
 svg .right {
-  animation: rightX 50s linear alternate infinite;
+    animation: rightX 50s linear alternate infinite;
 }
 
 svg .left {
-  animation: leftX 70s linear alternate infinite;
+    animation: leftX 70s linear alternate infinite;
 }
 
 svg .question {
-  letter-spacing: -8px;
-  font-size: 900%;
-  font-weight: 500;
-  font-family: 'Ultra', serif;
+    letter-spacing: -6px;
+    line-height: 1;
+    font-size: 700%;
+    font-weight: 300;
+    font-family: 'Ultra', serif;
 }
 
 
 svg #alpha {
-  fill: rgb(255,255,255);
+    fill: rgb(255,255,255);
 }
 
 svg #base {
@@ -90,50 +90,49 @@ svg #base {
 }
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 2%;
-  height: 40%;
-  width: 97%;
+    position: fixed;
+    bottom: 0;
+    left: 2%;
+    height: 40%;
+    width: 97%;
 }
 
 #answersContainer {
-  position: absolute;
-  top: 10%;
-  left: 2%;
-  width: 58%;
-  height: 100%;
-  line-height: 334%;
-
-
+    position: absolute;
+    top: 13%;
+    left: 1%;
+    width: 58%;
+    height: 100%;
+    line-height: 378%;
 }
 
 .numbers {
-  font-size: 550%;
-  font-family: 'Pacifico', cursive;
+    font-size: 550%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .answers {
-  display: inline-block;
-  margin: -10% 0% 0% 1%;
-  font-size: 550%;
-  font-family: 'Pacifico', cursive;
+    display: inline-flex;
+    margin: -10% 0% 0% 1%;
+    font-size: 568%;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .answers:hover {
-  animation: scaleUp .1s linear;
+    color: white;
 }
 
 #countdownContainer {
-  position: absolute;
-  bottom: -35%;
-  right: -4%
+    position: relative;
+    float: right;
+    width: 40%;
+
 }
 
 #countdownTimer {
-  font-family: 'Rubik Mono One', sans-serif;
-  font-size: 36em;
- 
+    margin: -36% 0 0 -19%;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 41em;
 }
 
 
