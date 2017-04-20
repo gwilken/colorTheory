@@ -28,15 +28,6 @@ html {
 }
 
 
-#background {
-/*    width: 100%;
-    height: 100%;
-    background: linear-gradient(180deg, blue, red);
-    background-size: 600% 600%;
-    height: 100%;
-    z-index: 1;*/
-}
-
 .run-animation {
 
   animation: fade 15s linear alternate infinite;
@@ -60,7 +51,6 @@ html {
     height: 100%;
     width: 97%;
 }
-
 
 
 svg {
@@ -87,11 +77,6 @@ svg .question {
     font-weight: 300;
     font-family: 'Ultra', serif;
 }
-
-
-/*svg #alpha {
-    fill: rgb(255,255,255);
-}*/
 
 svg #base {
     fill: rgb(0,0,0);
@@ -125,6 +110,7 @@ footer {
     margin: 0% 0% 0% 0%;
     font-size: 100%;
     font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
 }
 
 .answers:hover {

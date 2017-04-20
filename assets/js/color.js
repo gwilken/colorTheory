@@ -208,7 +208,7 @@ $(document).ready(function() {
 		}
 
 
-		displayQuestion = function(question) {
+		var displayQuestion = function(question) {
 
 			// svg text doesnt automatically wrap in it's container. so we do it one line at a time.
 
@@ -231,6 +231,8 @@ $(document).ready(function() {
 				}
 				
 			}
+
+			html.offsetHeight = html.offsetHeight;
 
 			html.css({
 				'background': 'linear-gradient(180deg, ' + question.colors[0] + ',' + question.colors[1],
