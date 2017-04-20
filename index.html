@@ -5,9 +5,13 @@
 	<title></title>
 
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
-	<script src="assets/js/untitled.js"></script>
+	<script src="assets/js/color.js"></script>
 	
+	
+<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">	
 
 </head>
@@ -15,37 +19,60 @@
 <body>
 
 	<div id='background'></div>
-
-
-	<div class="text">
 	  
-	  <svg viewBox="0 0 950 1000">
-	   
-	   <defs>
 
-	     <mask id="mask" x="-100%" y="-100%" width="300%" height="300%" >
-
-	       <rect id="alpha" x="-100%" y="-100%" width="300%" height="300%"/>
-
-	       <text id='q1' class="question" x="0" y="400"> Who is the greatest</text>
-	  	   <text id='q2' class="question" x="0" y="600"> band of all time? </text>
-	            
-	  
-	       <text id="answer-1">1</text>
-	       <text id="answer-2">2</text>
-	       <text id="answer-3">3</text>
-	       <text id="answer-4">4</text>
+	<div id='containerMain'>
 
 
-	     </mask>
-	  
-	    </defs>
-	 
-	    <rect id="base" x="-100%" y="-100%" width="300%" height="300%"/>
+		<div id='questionsContainer'>
+		<svg id='svgText' viewBox="0 0 950 1000">
+		   
+		   <defs>
 
-	  </svg>
+		     <mask id="mask" x="0" y="0" width="100%" height="59%" >
+
+		       <rect id="alpha" x="0" y="0" width="100%" height="59%"/>
+
+		       <text id='q-line-1' class="question right" x="0" y="110">This is a   </text>
+		  	   <text id='q-line-2' class="question left" x="0" y="230" >place holder</text>
+		       <text id='q-line-3' class="question right" x="0" y="350">question.  </text>
+		  	   <text id='q-line-4' class="question left" x="0" y="460" >What do you</text>
+		 	   <text id='q-line-5' class="question right" x="0" y="580">Think?     </text>
+
+		     </mask>
+		  
+		    </defs>
+		 
+		    <rect id="base" x="0" y="0" width="100%" height="100%"/>
+		</svg>
+	</div>
+
+	<footer>
+	
+		<div id='answersContainer'>
+			
+			<span class='numbers'>1.</span> <p id='answer-1' class='answers' value='0'>test answer!</p>
+
+			<span class='numbers'>2.</span><p id='answer-2' class='answers' value='1'>test answer!</p>
+
+			<span class='numbers'>3.</span><p id='answer-3' class='answers' value='2'>test answer!</p>
+
+			<span class='numbers'>4.</span><p id='answer-4' class='answers' value='3'>test answer!</p>
+
+		</div>
+
+
+		<div id ='countdownContainer'>
+			
+			<span id='countdownTimer'>9</span>
+
+		</div>
+
+	</footer>}
 
 	</div>
+
+
 
 
 </body>

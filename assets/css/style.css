@@ -1,53 +1,42 @@
 
 @keyframes fade  { 
-    
+  
     0%{background-position:50% 0%}
     50%{background-position:50% 100%}
     100%{background-position:50% 0%}
-
 }
 
 
 @keyframes rightX {
-
   0%{  transform: translateX(0px); }
   100%{  transform: translateX(50px); }
-
 }
 
 
 @keyframes leftX {
-
   0%{  transform: translateX(0px); }
   100%{  transform: translateX(-50px); }
-
 }
 
-@keyframes scale10 {
-
+@keyframes scaleUp {
   0% { transform: scale(1.0); }
-  100% { transform: scale(10.0) }
-
+  100% { transform: scale(1.1); }
 }
+
+
 
 
 html, body {
 
-      background: linear-gradient(180deg, yellow, green);
+      background: linear-gradient(180deg, blue, red);
       background-size: 600% 600%;
       height: 100%;
-      animation: fade 30s linear infinite;
+      animation: fade 30s linear alternate infinite;
 }
 
-body{
-
-  font-family: 'Ultra', serif;
-}
 
 #background {
-
-
-      z-index: 1;
+    z-index: 1;
 }
 
 .text{
@@ -59,30 +48,37 @@ body{
   z-index: 10;
 }
 
-
-#q1 {
-
-  animation: rightX 30s linear;
-
+#questionsContainer {
+  height: 100%;
+  width: 97%;
 }
 
-#q2{
-
-  animation: leftX 20s linear;
-
-}
 
 
 svg {
-  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 2%;
+  margin:0% 0% 0% 2%;
+  width: 97%;
   height: inherit;
 }
 
-svg .question {
-  letter-spacing: -2px;
-  font-size: 400px;
-  font-weight: 500;
+svg .right {
+  animation: rightX 50s linear alternate infinite;
 }
+
+svg .left {
+  animation: leftX 70s linear alternate infinite;
+}
+
+svg .question {
+  letter-spacing: -8px;
+  font-size: 900%;
+  font-weight: 500;
+  font-family: 'Ultra', serif;
+}
+
 
 svg #alpha {
   fill: rgb(255,255,255);
@@ -93,8 +89,51 @@ svg #base {
     mask: url(#mask);
 }
 
- .question {
-  letter-spacing: -2px;
-  font-size: 7em;
-  font-weight: 800;
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 2%;
+  height: 40%;
+  width: 97%;
 }
+
+#answersContainer {
+  position: absolute;
+  top: 10%;
+  left: 2%;
+  width: 58%;
+  height: 100%;
+  line-height: 334%;
+
+
+}
+
+.numbers {
+  font-size: 550%;
+  font-family: 'Pacifico', cursive;
+}
+
+.answers {
+  display: inline-block;
+  margin: -10% 0% 0% 1%;
+  font-size: 550%;
+  font-family: 'Pacifico', cursive;
+}
+
+.answers:hover {
+  animation: scaleUp .1s linear;
+}
+
+#countdownContainer {
+  position: absolute;
+  bottom: -35%;
+  right: -4%
+}
+
+#countdownTimer {
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 36em;
+ 
+}
+
+
