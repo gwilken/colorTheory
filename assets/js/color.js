@@ -10,10 +10,12 @@ $(document).ready(function() {
 		var currentQ = 0;
 		var clickValue = null;
 		var intervalId;
-		
+
 		var html = $('html');
-		var message = $('#message');
-		var subtitle = $('#subtitle');
+		var msg = $('#message');
+
+		var titleSpan = $('#title');
+		var subSpan = $('#subtitle');
 
 		var questions = [
 			{
@@ -105,21 +107,17 @@ $(document).ready(function() {
 
 		var start = function() {
 
-			var msg = $('<div>').addClass('message');
-			var title = $('<span>').addClass('title').html('Click!');
-			var sub = $('<span>').addClass('subtitle').html(' is correct!');
-			
-			msg.append(title);
-			msg.append(sub);
+			displayMessage('Color Trivia!', 'click to start');
 
-
-			$('#containerMain').append(msg);
-
-			msg.css('display', 'initial');
+			console.log(titleSpan, subSpan);
 
 			msg.on('click', function() {
 
 				msg.css('display', 'none');
+
+				msg.off('click');
+
+				msg.remove();
 
 				nextQuestion();
 
@@ -132,13 +130,9 @@ $(document).ready(function() {
 
 			var counter = 10;
 			
-			html.addClass('run-animation');
-
-
 			var stop = function() {
 
 				clearInterval(intervalId);
-
 			}
 
 
@@ -147,9 +141,6 @@ $(document).ready(function() {
 				counter--
 
 				$('#countdownTimer').html(counter);
-
-
-				console.log('val', clickValue);
 
 
 				if (counter === 0) {
@@ -172,8 +163,6 @@ $(document).ready(function() {
 
 					html.addClass('pause-animation');		
 
-					//$('.answers').off('click');
-
 					correctAnswer();		
 				
 				}; 
@@ -192,15 +181,12 @@ $(document).ready(function() {
 
 			};
 
-
 			intervalId = setInterval(countdown, 1300);
 
 		}
 
 
 		var nextQuestion = function() {
-
-			//console.log(currentQ, right, wrong);
 
 			displayQuestion(questions[currentQ]);
 
@@ -233,8 +219,14 @@ $(document).ready(function() {
 				
 			}
 
-			html.css({'background': 'linear-gradient(180deg, ' + question.colors[0] + ',' + question.colors[1], 'background-size': '600%, 600%', 'height': '100%'} );
+			html.css({
+				'background': 'linear-gradient(180deg, ' + question.colors[0] + ',' + question.colors[1],
+				'background-size': '600%, 600%',
+				'height': '100%',
+				'animation': 'fade 15s linear alternate infinite'
+			} );
 
+			//html.addClass('run-animation');
 		}
 
 
@@ -242,12 +234,35 @@ $(document).ready(function() {
 
 			timeOut++;
 
-			console.log('damn, out o time');
+			displayMessage("You're outta time sucka!", 'hurry up.');
 
 			html.removeClass('run-animation');
 
-			nextQuestion();
+			setTimeout(function() {
+
+				msg.remove();
+
+				currentQ++;
+
+				nextQuestion();
+
+			}, 2000);
 		
+		}
+
+		var displayMessage = function(title, subtitle) {
+
+			// msg.addClass('message');
+
+			// title = $('<span>').addClass('title').html(title);
+			// sub = $('<span>').addClass('subtitle').html(subtitle);
+			
+			titleSpan.html(title);
+			subSpan.html(subtitle);
+			msg.css('display', 'initial');
+			$('#containerMain').append(msg);
+
+
 		}
 
 
@@ -255,20 +270,14 @@ $(document).ready(function() {
 
 			wrong++;
 			
-			var msg = $('<div>').addClass('message');
-			var title = $('<span>').addClass('title').html('NOPE!');
-			var sub = $('<span>').addClass('subtitle').html(questions[currentQ].answers[questions[currentQ].correct] + ' was the answer.');
-			
-			msg.append(title);
-			msg.append(sub);
-
-			$('#containerMain').append(msg);
-
-			msg.css('display', 'initial');
+			displayMessage('NOPE!', questions[currentQ].answers[questions[currentQ].correct] + ' was the answer.');
 
 			html.removeClass('run-animation');
 
 			setTimeout(function() {
+
+				title = null;
+				subtitle = null;
 
 				msg.remove();
 
@@ -284,20 +293,14 @@ $(document).ready(function() {
 
 			right++;
 
-			var msg = $('<div>').addClass('message');
-			var title = $('<span>').addClass('title').html('NICE!');
-			var sub = $('<span>').addClass('subtitle').html(questions[currentQ].answers[questions[currentQ].correct] + ' is correct!');
-			
-			msg.append(title);
-			msg.append(sub);
-
-			$('#containerMain').append(msg);
-
-			msg.css('display', 'initial');
+			displayMessage('NICE!', questions[currentQ].answers[questions[currentQ].correct] + ' is correct!');
 
 			html.removeClass('run-animation');
 			
 			setTimeout(function() {
+
+				title = null;
+				subtitle = null;
 
 				msg.remove();
 
