@@ -2,17 +2,15 @@
 <html>
 <head>
 	
-	<title></title>
+	<title>Color Me Bad</title>
 
 	<script src="assets/js/jquery-3.2.1.min.js"></script>
 	<script src="assets/js/color.js"></script>
 	
-	
-<link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
 	<link href="https://fonts.googleapis.com/css?family=Rubik+Mono+One" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Ultra" rel="stylesheet">
-
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:600i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:600i" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">	
 
@@ -20,11 +18,7 @@
 
 <body>
 
-	<div id='background'></div>
-	  
-
 	<div id='containerMain'>
-
 
 		<div id='questionsContainer'>
 		<svg id='svgText' viewBox="0 0 950 1000">
@@ -35,12 +29,12 @@
 
 		       <rect id="alpha" x="0" y="0" width="100%" height="59%"/>
 
-		       <text id='q-line-0' class="question right" x="0" y="85">This is a placeh</text>
-		  	   <text id='q-line-1' class="question left" x="0" y="185" >place holder</text>
-		       <text id='q-line-2' class="question right" x="0" y="285">question.  </text>
-		  	   <text id='q-line-3' class="question left" x="0" y="385" >What do you</text>
-		 	   <text id='q-line-4' class="question right" x="0" y="485">Think?     </text>
-		 	   <text id='q-line-5' class="question right" x="0" y="585">Think?     </text>
+		       <text id='q-line-0' class="question right" x="0" y="85"></text>
+		  	   <text id='q-line-1' class="question left" x="0" y="185"></text>
+		       <text id='q-line-2' class="question right" x="0" y="285"></text>
+		  	   <text id='q-line-3' class="question left" x="0" y="385"></text>
+		 	   <text id='q-line-4' class="question right" x="0" y="485"></text>
+		 	   <text id='q-line-5' class="question right" x="0" y="585"></text>
 
 		     </mask>
 		  
@@ -48,19 +42,29 @@
 		 
 		    <rect id="base" x="0" y="0" width="100%" height="100%"/>
 		</svg>
+	
 	</div>
+
+
+	<div id='message'>
+
+		<span id='title'></span>
+
+		<br>
+		
+		<span class='subtitle'></span>
+		
+	</div>
+
 
 	<footer>
 	
 		<div id='answersContainer'>
 			
-			<span class='numbers'>1.</span> <p id='answer-1' class='answers' value='0'>test answer!</p>
-
-			<span class='numbers'>2.</span><p id='answer-2' class='answers' value='1'>test answer!</p>
-
-			<span class='numbers'>3.</span><p id='answer-3' class='answers' value='2'>test answer!</p>
-
-			<span class='numbers'>4.</span><p id='answer-4' class='answers' value='3'>test answer!</p>
+			<p class='numbers'> 1. <span id='answer-0' class='answers' value='0'>test answer!></span> </p>
+			<p class='numbers'> 2. <span id='answer-1' class='answers' value='1'>test answer!</span> </p>
+			<p class='numbers'> 3. <span id='answer-2' class='answers' value='2'>test answer!</span> </p>
+			<p class='numbers'> 4. <span id='answer-3' class='answers' value='3'>test answer!</span> </p>
 
 		</div>
 
@@ -71,7 +75,7 @@
 
 		</div>
 
-	</footer>}
+	</footer>
 
 	</div>
 
