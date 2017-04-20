@@ -79,11 +79,11 @@ $(document).ready(function() {
 				prompt: ['According to', 'safety studies', 'the safest', 'color for', 'an automobile', 'is?'],
 				answers: ['White', 'Red', 'Poop-Brown', 'Blue'],
 				colors: ['red', 'gold'],				
-				correct: 1
+				correct: 0
 			},	
 			{
 				prompt: ['What', 'is the', 'wavelength', 'of', 'visible', 'light?'],
-				answers: ['My wavelength man.', '200 nm', '270 - 500nm', '400 - 700nm' ],
+				answers: ['My wavelength', '200 nm', '270 - 500nm', '400 - 700nm' ],
 				colors: ['yellow', 'violet'],
 				correct: 3
 			},
@@ -119,6 +119,10 @@ $(document).ready(function() {
 
 				msg.remove();
 
+				$('.numbers').css('visibility', 'visible');
+
+				$('#svgText').find('#alpha').css('fill', 'rgb(255, 255, 255)');
+
 				nextQuestion();
 
 			});
@@ -139,6 +143,7 @@ $(document).ready(function() {
 			var countdown = function() {
 
 				counter--
+
 
 				$('#countdownTimer').html(counter);
 
@@ -181,16 +186,24 @@ $(document).ready(function() {
 
 			};
 
-			intervalId = setInterval(countdown, 1300);
+			intervalId = setInterval(countdown, 1200);
 
 		}
 
 
 		var nextQuestion = function() {
 
-			displayQuestion(questions[currentQ]);
+			if(currentQ === questions.length) {
 
-			timer();
+				endOfGame();
+
+			} else {
+
+				displayQuestion(questions[currentQ]);
+
+				timer();
+
+				}
 
 		}
 
@@ -224,15 +237,15 @@ $(document).ready(function() {
 				'background-size': '600%, 600%',
 				'height': '100%',
 				'animation': 'fade 15s linear alternate infinite'
-			} );
+			});
 
-			//html.addClass('run-animation');
 		}
 
 
 		var outOfTime = function() {
 
 			timeOut++;
+			wrong++;
 
 			displayMessage("You're outta time sucka!", 'hurry up.');
 
@@ -252,16 +265,10 @@ $(document).ready(function() {
 
 		var displayMessage = function(title, subtitle) {
 
-			// msg.addClass('message');
-
-			// title = $('<span>').addClass('title').html(title);
-			// sub = $('<span>').addClass('subtitle').html(subtitle);
-			
 			titleSpan.html(title);
 			subSpan.html(subtitle);
 			msg.css('display', 'initial');
 			$('#containerMain').append(msg);
-
 
 		}
 
@@ -309,6 +316,34 @@ $(document).ready(function() {
 				nextQuestion();
 
 			}, 2000);
+
+		}
+
+		var endOfGame = function() {
+
+			displayMessage('Fin!', 'you got ' + right + ' right & ' + wrong + ' wrong');
+
+			$('#subsubtitle').html('click to play again!');
+
+
+			msg.on('click', function() {
+
+				currentQ = 0;
+				right = 0;
+				wrong = 0;
+				timeOut = 0;
+
+				$('#subsubtitle').html('');
+
+				msg.css('display', 'none');
+
+				msg.off('click');
+
+				msg.remove();
+
+				start();
+
+			});
 
 		}
 

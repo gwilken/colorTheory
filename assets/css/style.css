@@ -89,9 +89,9 @@ svg .question {
 }
 
 
-svg #alpha {
+/*svg #alpha {
     fill: rgb(255,255,255);
-}
+}*/
 
 svg #base {
     fill: rgb(0,0,0);
@@ -116,6 +116,7 @@ footer {
 }
 
 .numbers {
+    visibility: hidden;
     font-size: 400%;
     font-family: 'Open Sans', sans-serif;
 }
@@ -182,6 +183,16 @@ footer {
     position: relative;
 }
 
+#subsubtitle {
+    display: block;
+    text-align: center;
+    width: 100%;
+    left: 0%;
+    top:  45%;
+    font-size: 2em;
+    font-family: 'Rubik Mono One', sans-serif;
+    position: relative;
+}
 
 
 
