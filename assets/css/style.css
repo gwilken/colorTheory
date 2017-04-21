@@ -1,17 +1,14 @@
 
 @keyframes fade  { 
-  
-    0%{background-position:50% 0%}
-    50%{background-position:50% 100%}
-    100%{background-position:50% 0%}
+    0% { background-position: 50% 0%; }
+    50%{ background-position: 50% 100%; }
+    100% { background-position: 50% 0%; }
 }
-
 
 @keyframes rightX {
   0%{  transform: translateX(0px); }
   100%{  transform: translateX(50px); }
 }
-
 
 @keyframes leftX {
   0%{  transform: translateX(0px); }
@@ -19,37 +16,11 @@
 }
 
 
-
 html {
     background: linear-gradient(180deg, blue, red);
     background-size: 600% 600%;
     height: 100%;
     animation: fade 15s linear alternate infinite;
-}
-
-
-.run-animation {
-
-  animation: fade 15s linear alternate infinite;
-
-}
-
-.pause-animation {
-  animation-play-state: paused;
-}
-
-.text{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-}
-
-#questionsContainer {
-    height: 100%;
-    width: 97%;
 }
 
 
@@ -83,11 +54,9 @@ svg #base {
     mask: url(#mask);
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 2%;
-    height: 40%;
+
+#questionsContainer {
+    height: 100%;
     width: 97%;
 }
 
@@ -98,23 +67,6 @@ footer {
     width: 70%;
     height: 100%;
     line-height: 100%;
-}
-
-.numbers {
-    visibility: hidden;
-    font-size: 400%;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.answers {
-    margin: 0% 0% 0% 0%;
-    font-size: 100%;
-    font-family: 'Open Sans', sans-serif;
-    cursor: pointer;
-}
-
-.answers:hover {
-    color: white;
 }
 
 #countdownContainer {
@@ -129,7 +81,6 @@ footer {
     font-family: 'Rubik Mono One', sans-serif;
     font-size: 41em;
 }
-
 
 #message {
   display: none;
@@ -179,6 +130,52 @@ footer {
     font-family: 'Rubik Mono One', sans-serif;
     position: relative;
 }
+
+.run-animation {
+    animation: fade 15s linear alternate infinite;
+
+}
+
+.pause-animation {
+  animation-play-state: paused;
+}
+
+.text{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+}
+
+.numbers {
+    visibility: hidden;
+    font-size: 400%;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.answers {
+    margin: 0% 0% 0% 0%;
+    font-size: 100%;
+    font-family: 'Open Sans', sans-serif;
+    cursor: pointer;
+}
+
+.answers:hover {
+    color: white;
+}
+
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 2%;
+    height: 40%;
+    width: 97%;
+}
+
+
 
 
 

@@ -2,7 +2,6 @@ $(document).ready(function() {
 
 	$(window).on('load', function () {	
 
-
 		var right = 0;
 		var wrong = 0;
 		var timeOut = 0;
@@ -98,6 +97,8 @@ $(document).ready(function() {
 
 		$('.answers').on('click', function(event){
 
+			//tie our click event to a value we assigned each answer
+
 			clickValue = parseInt(event.target.attributes.value.value);
 
 			console.log(clickValue);
@@ -106,6 +107,8 @@ $(document).ready(function() {
 
 
 		var start = function() {
+
+			//run this function first, provides a landing page 
 
 			displayMessage('Color Trivia!', 'click to start');
 
@@ -120,6 +123,8 @@ $(document).ready(function() {
 				msg.remove();
 
 				$('.numbers').css('visibility', 'visible');
+
+				//if user clicks to play, make the answer number visable and the mask used to create the question text.
 
 				$('#svgText').find('#alpha').css('fill', 'rgb(255, 255, 255)');
 
@@ -144,17 +149,15 @@ $(document).ready(function() {
 
 				counter--
 
-
 				$('#countdownTimer').html(counter);
 
+				// our countdown if conditions
 
 				if (counter === 0) {
 
 					clickValue = null;
 
-					clearInterval(intervalId); 
-
-					html.removeClass('run-animation');
+					stop(); 
 
 					outOfTime();
 
@@ -164,9 +167,7 @@ $(document).ready(function() {
 
 					clickValue = null;
 
-					window.clearInterval(intervalId); 
-
-					html.addClass('pause-animation');		
+					stop(); 
 
 					correctAnswer();		
 				
@@ -176,9 +177,7 @@ $(document).ready(function() {
 					
 					clickValue = null;
 
-					window.clearInterval(intervalId); 
-
-					html.addClass('pause-animation');
+					stop(); 
 
 					wrongAnswer();
 
@@ -186,12 +185,16 @@ $(document).ready(function() {
 
 			};
 
+			//start our interval, give em just a lil' longer than 1 sec.
+
 			intervalId = setInterval(countdown, 1200);
 
 		}
 
 
 		var nextQuestion = function() {
+
+			//if our current question index tracker reaches the end of array, end game
 
 			if(currentQ === questions.length) {
 
@@ -232,7 +235,7 @@ $(document).ready(function() {
 				
 			}
 
-			html.offsetHeight = html.offsetHeight;
+			//rebuild the background div on each new question so we can swap out colors
 
 			html.css({
 				'background': 'linear-gradient(180deg, ' + question.colors[0] + ',' + question.colors[1],
@@ -264,6 +267,8 @@ $(document).ready(function() {
 			}, 2000);
 		
 		}
+
+		//a helper function for displaying messages to users
 
 		var displayMessage = function(title, subtitle) {
 
@@ -298,6 +303,7 @@ $(document).ready(function() {
 
 		}
 
+
 		var correctAnswer = function() {
 
 			right++;
@@ -320,6 +326,7 @@ $(document).ready(function() {
 			}, 2000);
 
 		}
+
 
 		var endOfGame = function() {
 
@@ -349,7 +356,9 @@ $(document).ready(function() {
 
 		}
 
+
 		start();
+
 
 	});
 
