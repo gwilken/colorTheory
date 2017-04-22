@@ -61,12 +61,12 @@ svg #base {
 }
 
 #answersContainer {
-    position: absolute;
-    top: 3%;
-    left: 1%;
-    width: 70%;
+    position: relative;
+    margin: -2% 0 0 4%;
+    float: left;
+    width: 55%;
     height: 100%;
-    line-height: 100%;
+    line-height: 80%;
 }
 
 #countdownContainer {
@@ -77,9 +77,9 @@ svg #base {
 }
 
 #countdownTimer {
-    margin: -36% 0 0 -19%;
+    margin: -4% 0 0 0%;
     font-family: 'Rubik Mono One', sans-serif;
-    font-size: 41em;
+    font-size: 2000%;
 }
 
 #message {
@@ -106,7 +106,7 @@ svg #base {
     font-family: 'Rubik Mono One', sans-serif;
     position: relative;
     font-family: 'Rubik Mono One', sans-serif;
-    font-size: 6em;
+    font-size: 340%;
 }
 
 #subtitle {
@@ -115,7 +115,7 @@ svg #base {
     width: 100%;
     left: 0%;
     top:  35%;
-    font-size: 3em;
+    font-size: 240%;
     font-family: 'Rubik Mono One', sans-serif;
     position: relative;
 }
@@ -126,7 +126,7 @@ svg #base {
     width: 100%;
     left: 0%;
     top:  45%;
-    font-size: 2em;
+    font-size: 190%;
     font-family: 'Rubik Mono One', sans-serif;
     position: relative;
 }
@@ -157,7 +157,7 @@ svg #base {
 
 .answers {
     margin: 0% 0% 0% 0%;
-    font-size: 100%;
+    font-size: 80%;
     font-family: 'Open Sans', sans-serif;
     cursor: pointer;
 }
