@@ -26,7 +26,7 @@ $(document).ready(function() {
 
 			{
 				prompt: ['When born', "a zebra's", 'black and white', 'stripes are', 'actually this', 'color'],
-				answers: ['Black & white, duh.', 'Brown', 'Invisible', 'Pink'],
+				answers: ['Black & white', 'Brown', 'Invisible', 'Pink'],
 				colors: ['yellow', 'yellowgreen'],
 				correct: 1
 			},
@@ -70,7 +70,7 @@ $(document).ready(function() {
 			},
 			{
 				prompt: ['The first', 'color a', 'baby can', 'perceive', 'is', 'what?'],
-				answers: ['Blue', 'Aqua-Marine', 'Red', "Baby's cant see!"],
+				answers: ['Blue', 'Aqua-Marine', 'Red', "Babies cant see!"],
 				colors: ['violet', 'mediumvioletred'],				
 				correct: 2
 			},
@@ -88,7 +88,7 @@ $(document).ready(function() {
 			},
 			{
 				prompt: ['The', 'irrational', 'fear of', 'color', 'is known', 'as what?'],
-				answers: ['Chromophobia', 'Sprectrophobia', 'Colorsickness', 'Scaredycat-blues'],
+				answers: ['Chromophobia', 'Sprectrophobia', 'Colorsickness', 'Pigmentfear'],
 				colors: ['orange', 'yellow'],				
 				correct: 0
 			}
